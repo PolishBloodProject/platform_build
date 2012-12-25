@@ -111,6 +111,9 @@ ifeq ($(TARGET_ARCH),arm)
     ifeq ($(HOST_OS),darwin)
       ARM_CROSS_COMPILE:=CROSS_COMPILE="$(ccache) $(ANDROID_BUILD_TOP)/prebuilt/darwin-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-"
     else
+    ifeq ($(TARGET_USES_OLD_TOOLCHAIN),true)
+      ARM_CROSS_COMPILE:=CROSS_COMPILE="$(ccache) $(ANDROID_BUILD_TOP)/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-"
+    else
       ARM_CROSS_COMPILE:=CROSS_COMPILE="$(ccache) $(ARM_EABI_TOOLCHAIN)/arm-eabi-"
     endif
     ccache = 
