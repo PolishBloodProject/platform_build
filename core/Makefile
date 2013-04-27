@@ -1297,6 +1297,8 @@ name := $(name)-ota-$(FILE_NAME_TAG)
 
 INTERNAL_OTA_PACKAGE_TARGET := $(PRODUCT_OUT)/$(name).zip
 
+$(INTERNAL_OTA_PACKAGE_TARGET): backuptool := true
+
 $(INTERNAL_OTA_PACKAGE_TARGET): KEY_CERT_PAIR := $(DEFAULT_KEY_CERT_PAIR)
 
 ifeq ($(TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT),)
@@ -1322,8 +1324,7 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) $(DISTTOOLS)
 	$(OTA_FROM_TARGET_SCRIPT) -v \
 	   -p $(HOST_OUT) \
 	   -k $(KEY_CERT_PAIR) \
-	   --backup=$(backuptool) \
-	   --override_device=$(override_device) \
+           --backup=$(backuptool) \
 	   $(BUILT_TARGET_FILES_PACKAGE) $@
 
 CM_TARGET_PACKAGE := $(PRODUCT_OUT)/cm-$(CM_VERSION).zip

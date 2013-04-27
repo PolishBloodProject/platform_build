@@ -21,11 +21,6 @@
 
 PRODUCT_PACKAGES := \
     libfwdlockengine \
-    OpenWnn \
-    PinyinIME \
-    libWnnEngDic \
-    libWnnJpnDic \
-    libwnndict \
     VideoEditor \
     WAPPushManager
 
@@ -37,7 +32,8 @@ PRODUCT_PACKAGES += \
     MagicSmokeWallpapers \
     NoiseField \
     PhaseBeam \
-    VisualizationWallpapers
+    VisualizationWallpapers \
+    PhotoTable
 
 # Additional settings used in all AOSP builds
 PRODUCT_PROPERTY_OVERRIDES := \
