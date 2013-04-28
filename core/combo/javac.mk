@@ -12,12 +12,12 @@ ifeq ($(BUILD_OS), windows)
     COMMON_JAVAC := development/host/windows/prebuilt/javawrap.exe -J-Xmx256m \
         -target 1.5 -Xmaxerrs 9999999
 else
-    COMMON_JAVAC := javac6 -J-Xmx512M -target 1.5 -Xmaxerrs 9999999
+    COMMON_JAVAC := javac -J-Xmx512M -target 1.5 -Xmaxerrs 9999999
 endif
 
 # Eclipse.
 ifeq ($(CUSTOM_JAVA_COMPILER), eclipse)
-    COMMON_JAVAC := java6 -Xmx256m -jar prebuilt/common/ecj/ecj.jar -5 \
+    COMMON_JAVAC := java -Xmx256m -jar prebuilt/common/ecj/ecj.jar -5 \
         -maxProblems 9999999 -nowarn
     $(info CUSTOM_JAVA_COMPILER=eclipse)
 endif
